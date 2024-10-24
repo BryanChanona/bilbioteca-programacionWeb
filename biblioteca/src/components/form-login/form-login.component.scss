@@ -1,0 +1,46 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentForm{
+    background-color: rgba(89, 48, 12, 0.5); 
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    
+}
+.titleLogin{
+    margin-top: 15px;
+    margin-bottom: 40px;
+    
+}
+.inputsData{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 70px;
+
+}
+.inputsData input{
+    height: 40px;
+    width: 250px;
+    border-radius: 5px;
+}
+.buttonLogin{
+    margin-top: 80px;
+}
+
+.buttonLogin button{
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+    

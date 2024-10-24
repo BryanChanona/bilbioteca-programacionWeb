@@ -1,0 +1,20 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Título:</label>
+      <input id="title" formControlName="title" type="text" placeholder="Título del libro">
+      <div *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched">
+        <small class="error">El título es requerido.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="releaseDate">Fecha de Lanzamiento:</label>
+      <input id="releaseDate" formControlName="releaseDate" type="date">
+      <div *ngIf="bookForm.get('releaseDate')?.invalid && bookForm.get('releaseDate')?.touched">
+        <small class="error">La fecha de lanzamiento es requerida.</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="bookForm.invalid">Agregar Libro</button>
+  </form>
+  

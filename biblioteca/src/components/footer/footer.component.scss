@@ -1,0 +1,40 @@
+.footer {
+    background-color: #59300C;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 600px;
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+  
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+  
+      li {
+        margin: 0 15px;
+      }
+  
+      a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+  
+        &:hover {
+          color: #ffd700; /* Cambia el color cuando pasas el mouse */
+        }
+      }
+    }
+  }
