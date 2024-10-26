@@ -1,19 +1,21 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../service/book.service';
 import { Book } from '../../models/book.model';
 import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-table-view',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule,HttpClientModule],
   templateUrl: './table-view.component.html',
   styleUrl: './table-view.component.scss'
 })
-export class TableViewComponent implements OnInit{
+export class TableViewComponent implements OnInit {
   books: Book[] = []; // Inicializa el array de libros
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
     this.loadBooks(); // Llama al método para cargar libros al iniciar
@@ -30,8 +32,22 @@ export class TableViewComponent implements OnInit{
     });
   }
 
- 
+  deleteBook(id: number): void {
+    this.bookService.deleteBook(id).subscribe({
+      next: () => {
+        this.books.filter(book => book.id !== id);
 
-  
+      },
+      error: (error) => {
+        console.error('Error al eliminar el libro', error); // Manejo de errores
+      }
+    })
+
+  }
+
+
+
+
+
 
 }

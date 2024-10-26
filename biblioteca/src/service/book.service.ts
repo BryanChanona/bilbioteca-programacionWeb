@@ -13,7 +13,19 @@ export class BookService {
   constructor(private http: HttpClient) {}
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.apiUrl); // Devuelve un observable de tipo Book[]
+    return this.http.get<Book[]>(`${this.apiUrl}/getAllBooks`);
   }
+
+
+  deleteBook(id: number):Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/deleteBook/${id}`)
+  }
+
+
+
+
+  
+
+  
  
 }
