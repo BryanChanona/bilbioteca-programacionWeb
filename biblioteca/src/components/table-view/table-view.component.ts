@@ -35,12 +35,27 @@ export class TableViewComponent implements OnInit {
   deleteBook(id: number): void {
     this.bookService.deleteBook(id).subscribe({
       next: () => {
-        this.books.filter(book => book.id !== id);
-
+        this.books = this.books.filter(book => book.id !== id);
       },
       error: (error) => {
         console.error('Error al eliminar el libro', error); // Manejo de errores
       }
+    })
+
+  }
+
+
+  updateBook(id:number,book: Book): void{
+    this.bookService.updatebook(id,book).subscribe({
+      next: ()=> {
+        console.log('Libro actualizado exitosamente');
+        this.loadBooks();
+          
+      },
+      error: (error) => {
+        console.error('Error al actualizar el libro', error); // Manejo de errores
+      }
+
     })
 
   }
